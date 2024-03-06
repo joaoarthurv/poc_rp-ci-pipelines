@@ -2,28 +2,27 @@ pipeline {
     agent any
 
     stages {
-        stage("build"){
+        stage("build") {
             steps {
-            echo 'building the application...'
-            echo 'Check pipe'
+                echo 'building the application...'
+                echo 'Check pipe'
             }
         }
 
-        stage("test"){
+        stage("test") {
             steps {
-            echo 'testing the application...'
+                echo 'testing the application...'
             }
         }
 
-        stage("deploy"){
+        stage("deploy") {
             steps {
-            echo 'deploy the application...'
-
+                echo 'deploy the application...'
             }
         }
     }
 
-     post {
+    post {
         always {
             // Construa o objeto JSON com o atributo 'passed'
             def jsonResponse = [:]
