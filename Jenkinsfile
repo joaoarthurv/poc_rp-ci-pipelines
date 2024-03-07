@@ -7,6 +7,7 @@ pipeline {
                [key: 'webhookBody', value: '$.'],
            ],
            printContributedVariables: true,
+           token: 'test-tf-controller-token',
            regexpFilterText: '.*'  // Esta linha é adicionada para capturar todo o conteúdo do webhook
        )
     }
