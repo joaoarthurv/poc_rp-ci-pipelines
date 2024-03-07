@@ -4,7 +4,7 @@ pipeline {
     triggers {
         GenericTrigger(
             genericVariables: [
-                [ key: 'tfplan', value: '$.status.tfplan' ]
+                [key: 'webhookBody', value: '$.']
             ],
             token: 'test-tf-controller-token',
             printContributedVariables: true
@@ -17,8 +17,7 @@ pipeline {
                 echo 'building the application...'
                 echo 'Check pipeline'
                 script {
-                    echo "tfplan: ${env.tfplan}"
-
+                    echo "${env.webhookBody}"
                 }
             }
         }
