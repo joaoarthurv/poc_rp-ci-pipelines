@@ -1,24 +1,13 @@
 pipeline {
     agent any
 
-    triggers {
-       GenericTrigger(
-           genericVariables: [
-               [key: 'webhookBody', value: '$.'],
-           ],
-           printContributedVariables: true,
-           token: 'test-tf-controller-token',
-           regexpFilterText: '.*'  // Esta linha é adicionada para capturar todo o conteúdo do webhook
-       )
-    }
-
     stages {
         stage("build") {
             steps {
                 echo 'building the application...'
                 echo 'Check pipeline'
                 script {
-                    echo "${env.webhookBody}"
+                    echo "${env.tfplan}"
                 }
             }
         }
