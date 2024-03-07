@@ -1,11 +1,25 @@
 pipeline {
     agent any
 
+    triggers {
+        GenericTrigger(
+            genericVariables: [
+                [ key: 'tfplan', value: '$.status.tfplan' ]
+            ],
+            token: 'test-tf-controller-token',
+            printContributedVariables: true
+        )
+    }
+
     stages {
         stage("build") {
             steps {
                 echo 'building the application...'
-                echo 'Check pipe'
+                echo 'Check pipeline'
+                script {
+                    echo "tfplan: ${env.tfplan}"
+
+                }
             }
         }
 
