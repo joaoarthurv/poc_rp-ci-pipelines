@@ -6,7 +6,7 @@ pipeline {
             genericVariables: [
                 [key: 'webhookBody', value: '$.']
             ],
-            token: 'test-tf-controller-token',
+            regexpFilterText: '$',
             printContributedVariables: true
         )
     }
