@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     triggers {
-        GenericTrigger(
-            genericVariables: [
-                [key: 'webhookBody', value: '$.']
-            ],
-            regexpFilterText: '$',
-            printContributedVariables: true
-        )
+       GenericTrigger(
+           genericVariables: [
+               [key: 'webhookBody', value: '$.'],
+           ],
+           printContributedVariables: true,
+           regexpFilterText: '.*'  // Esta linha é adicionada para capturar todo o conteúdo do webhook
+       )
     }
 
     stages {
